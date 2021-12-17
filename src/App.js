@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import logo from "./logo.svg";
+import "./App.scss";
+import "antd/dist/antd.min.css";
+import UIinput from "./component/UIInput";
+import UIOutput from "./component/UIOutput";
 
 function App() {
+  const [option, setOption] = useState(-1);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="App-header">UI App</header>
+      <div className="main">
+        <UIinput option={(param) => setOption(param)} />
+        <UIOutput option={option} />
+      </div>
     </div>
   );
 }
